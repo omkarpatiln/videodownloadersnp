@@ -11,7 +11,7 @@ interface Props {
   style?: ViewStyle;
   TextStyle?: TextStyle;
   ColorStyle: TextStyle;
-  Number: number;
+  Number: string;
   onPress: () => void;
   TextPress: () => void;
 }

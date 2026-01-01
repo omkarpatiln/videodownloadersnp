@@ -1,4 +1,10 @@
-import { View, Text, ViewStyle, TextStyle } from 'react-native';
+import {
+  View,
+  Text,
+  ViewStyle,
+  TextStyle,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
 interface Props {
@@ -7,6 +13,7 @@ interface Props {
   TextStyle?: TextStyle;
   Number: number;
   Isnumberneeded?: boolean;
+  Press?: () => void;
 }
 const Test: React.FC<Props> = ({
   text,
@@ -14,6 +21,7 @@ const Test: React.FC<Props> = ({
   TextStyle,
   Number,
   Isnumberneeded,
+  Press,
 }) => {
   return (
     <View>
@@ -32,11 +40,14 @@ const Test: React.FC<Props> = ({
       </View>
 
       {Isnumberneeded ? null : (
-        <Text
-          style={{ textAlign: 'center', backgroundColor: 'white', margin: 2 }}
-        >
-          {Number}
-        </Text>
+        <TouchableOpacity>
+          <Text
+            onPress={Press}
+            style={{ textAlign: 'center', backgroundColor: 'white', margin: 2 }}
+          >
+            {Number}
+          </Text>
+        </TouchableOpacity>
       )}
     </View>
   );
